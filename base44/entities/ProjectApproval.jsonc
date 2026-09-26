@@ -1,0 +1,93 @@
+{
+  "name": "ProjectApproval",
+  "type": "object",
+  "properties": {
+    "profile_id": {
+      "type": "string"
+    },
+    "approval_key": {
+      "type": "string"
+    },
+    "approval_name": {
+      "type": "string"
+    },
+    "authority": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "triggered_factors": {
+      "type": "array"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "required_document_keys": {
+      "type": "array"
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "on_critical_path": {
+      "type": "boolean"
+    },
+    "readiness": {
+      "type": "number"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "last_verified": {
+      "type": "string"
+    },
+    "rule_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "profile_id",
+    "approval_key"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

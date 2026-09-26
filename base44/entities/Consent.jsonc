@@ -1,0 +1,72 @@
+{
+  "name": "Consent",
+  "type": "object",
+  "properties": {
+    "consent_id": {
+      "type": "string"
+    },
+    "organization_id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "data_categories": {
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "expiry": {
+      "type": "string"
+    },
+    "revoked_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "provider",
+    "service",
+    "purpose"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

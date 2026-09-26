@@ -1,0 +1,107 @@
+{
+  "name": "Application",
+  "type": "object",
+  "properties": {
+    "profile_id": {
+      "type": "string"
+    },
+    "approval_key": {
+      "type": "string"
+    },
+    "approval_name": {
+      "type": "string"
+    },
+    "authority": {
+      "type": "string"
+    },
+    "application_reference": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "status_source": {
+      "type": "string"
+    },
+    "official_url": {
+      "type": "string"
+    },
+    "integration_mode": {
+      "type": "string"
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "data_source": {
+      "type": "string"
+    },
+    "correlation_id": {
+      "type": "string"
+    },
+    "submitted_date": {
+      "type": "string"
+    },
+    "portal": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "queries": {
+      "type": "array"
+    },
+    "timeline": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "profile_id"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

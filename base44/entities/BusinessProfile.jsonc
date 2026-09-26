@@ -1,0 +1,176 @@
+{
+  "name": "BusinessProfile",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "entity_type": {
+      "type": "string"
+    },
+    "founder_name": {
+      "type": "string"
+    },
+    "registration_status": {
+      "type": "string"
+    },
+    "pan_available": {
+      "type": "boolean"
+    },
+    "gst_available": {
+      "type": "boolean"
+    },
+    "udyam_status": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "primary_activity": {
+      "type": "string"
+    },
+    "products_services": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "pincode": {
+      "type": "string"
+    },
+    "industrial_area": {
+      "type": "string"
+    },
+    "area_type": {
+      "type": "string"
+    },
+    "premises_type": {
+      "type": "string"
+    },
+    "land_status": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "sub_industry": {
+      "type": "string"
+    },
+    "custom_industry": {
+      "type": "string"
+    },
+    "investment": {
+      "type": "number"
+    },
+    "annual_revenue": {
+      "type": "number"
+    },
+    "production_capacity": {
+      "type": "string"
+    },
+    "workforce": {
+      "type": "number"
+    },
+    "built_up_area": {
+      "type": "string"
+    },
+    "land_area": {
+      "type": "string"
+    },
+    "project_stage": {
+      "type": "string"
+    },
+    "production_status": {
+      "type": "string"
+    },
+    "project_type": {
+      "type": "string"
+    },
+    "employee_count": {
+      "type": "number"
+    },
+    "power_requirement": {
+      "type": "string"
+    },
+    "water_requirement": {
+      "type": "string"
+    },
+    "export_import_value": {
+      "type": "string"
+    },
+    "infrastructure": {
+      "type": "object"
+    },
+    "factors": {
+      "type": "object"
+    },
+    "ai_analysis": {
+      "type": "object"
+    },
+    "government_data": {
+      "type": "object"
+    },
+    "stage": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

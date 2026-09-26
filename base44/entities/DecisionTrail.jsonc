@@ -1,0 +1,86 @@
+{
+  "name": "DecisionTrail",
+  "type": "object",
+  "properties": {
+    "profile_id": {
+      "type": "string"
+    },
+    "approval_key": {
+      "type": "string"
+    },
+    "approval_name": {
+      "type": "string"
+    },
+    "rule": {
+      "type": "string"
+    },
+    "result": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "triggering_facts": {
+      "type": "array"
+    },
+    "missing_facts": {
+      "type": "array"
+    },
+    "evaluated_conditions": {
+      "type": "array"
+    },
+    "input_facts": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "string"
+    },
+    "legal_basis": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "rule_version": {
+      "type": "string"
+    },
+    "engine_version": {
+      "type": "string"
+    },
+    "evaluated_at": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "profile_id",
+    "approval_key",
+    "result"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
